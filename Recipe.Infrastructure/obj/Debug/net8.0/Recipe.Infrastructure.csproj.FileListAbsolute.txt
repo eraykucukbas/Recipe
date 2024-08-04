@@ -1,0 +1,17 @@
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/bin/Debug/net8.0/Recipe.Infrastructure.deps.json
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/bin/Debug/net8.0/Recipe.Infrastructure.runtimeconfig.json
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/bin/Debug/net8.0/Recipe.Infrastructure.dll
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/bin/Debug/net8.0/Recipe.Infrastructure.pdb
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/bin/Debug/net8.0/Recipe.Core.dll
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/bin/Debug/net8.0/Recipe.Core.pdb
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/obj/Debug/net8.0/Recipe.Infrastructure.csproj.AssemblyReference.cache
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/obj/Debug/net8.0/Recipe.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/obj/Debug/net8.0/Recipe.Infrastructure.AssemblyInfoInputs.cache
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/obj/Debug/net8.0/Recipe.Infrastructure.AssemblyInfo.cs
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/obj/Debug/net8.0/Recipe.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/obj/Debug/net8.0/Recipe.I.78D6F803.Up2Date
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/obj/Debug/net8.0/Recipe.Infrastructure.dll
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/obj/Debug/net8.0/refint/Recipe.Infrastructure.dll
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/obj/Debug/net8.0/Recipe.Infrastructure.pdb
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/obj/Debug/net8.0/Recipe.Infrastructure.genruntimeconfig.cache
+/Users/ray/RiderProjects/Recipe/Recipe.Infrastructure/obj/Debug/net8.0/ref/Recipe.Infrastructure.dll
