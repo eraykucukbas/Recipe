@@ -38,5 +38,11 @@ namespace Recipe.Infrastructure.Mappings
             // return entities?.Select(ToDto).ToList();
             return dto.Select(ToEntity).ToList();
         }
+        
+        public static List<InstructionDto?> ToSummaryListdto(ICollection<Instruction>? entities)
+        {
+            if (entities is null) return null;
+            return entities.Select(ToDto).ToList();
+        }
     }
 }

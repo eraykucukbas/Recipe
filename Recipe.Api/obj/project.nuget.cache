@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "au9ge7tkraYN3+mnMlmOdLTxBpF9MXHYXW+pjS71JT2tM93M3AnszgfPmRfwMUxnsMOx/q7RFe9wxeBfPTjqeg==",
+  "dgSpecHash": "PXeplQEnX4v3RQ/Q9LL/MfavAb3yHTS24onLWprRw/xLdrn1cDi1aborNIaOt+L4bAXsvFRtguNxl7GDYTWqeA==",
   "success": true,
   "projectFilePath": "/Users/ray/RiderProjects/Recipe/Recipe.Api/Recipe.Api.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,8 @@
     "/Users/ray/.nuget/packages/azure.core/1.35.0/azure.core.1.35.0.nupkg.sha512",
     "/Users/ray/.nuget/packages/azure.identity/1.10.3/azure.identity.1.10.3.nupkg.sha512",
     "/Users/ray/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
-    "/Users/ray/.nuget/packages/fluentvalidation/11.5.1/fluentvalidation.11.5.1.nupkg.sha512",
+    "/Users/ray/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",
+    "/Users/ray/.nuget/packages/fluentvalidation/11.9.2/fluentvalidation.11.9.2.nupkg.sha512",
     "/Users/ray/.nuget/packages/fluentvalidation.aspnetcore/11.3.0/fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "/Users/ray/.nuget/packages/fluentvalidation.dependencyinjectionextensions/11.5.1/fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "/Users/ray/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/8.0.7/microsoft.aspnetcore.authentication.jwtbearer.8.0.7.nupkg.sha512",
@@ -23,6 +24,7 @@
     "/Users/ray/.nuget/packages/microsoft.entityframeworkcore/8.0.7/microsoft.entityframeworkcore.8.0.7.nupkg.sha512",
     "/Users/ray/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.7/microsoft.entityframeworkcore.abstractions.8.0.7.nupkg.sha512",
     "/Users/ray/.nuget/packages/microsoft.entityframeworkcore.analyzers/8.0.7/microsoft.entityframeworkcore.analyzers.8.0.7.nupkg.sha512",
+    "/Users/ray/.nuget/packages/microsoft.entityframeworkcore.proxies/8.0.7/microsoft.entityframeworkcore.proxies.8.0.7.nupkg.sha512",
     "/Users/ray/.nuget/packages/microsoft.entityframeworkcore.relational/8.0.7/microsoft.entityframeworkcore.relational.8.0.7.nupkg.sha512",
     "/Users/ray/.nuget/packages/microsoft.entityframeworkcore.sqlserver/8.0.7/microsoft.entityframeworkcore.sqlserver.8.0.7.nupkg.sha512",
     "/Users/ray/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
@@ -64,6 +66,7 @@
     "/Users/ray/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
     "/Users/ray/.nuget/packages/system.configuration.configurationmanager/6.0.1/system.configuration.configurationmanager.6.0.1.nupkg.sha512",
     "/Users/ray/.nuget/packages/system.diagnostics.diagnosticsource/7.0.2/system.diagnostics.diagnosticsource.7.0.2.nupkg.sha512",
+    "/Users/ray/.nuget/packages/system.diagnostics.eventlog/6.0.0/system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "/Users/ray/.nuget/packages/system.drawing.common/6.0.0/system.drawing.common.6.0.0.nupkg.sha512",
     "/Users/ray/.nuget/packages/system.formats.asn1/5.0.0/system.formats.asn1.5.0.0.nupkg.sha512",
     "/Users/ray/.nuget/packages/system.identitymodel.tokens.jwt/7.1.2/system.identitymodel.tokens.jwt.7.1.2.nupkg.sha512",

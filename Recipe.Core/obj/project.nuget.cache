@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "glv3DoOmJIRq7QB1EXD8Gj0gmRxtEaOLh5sm/wRRWku+KUCjWmLLHZo7cVPJqUen2Pd9WE4KZCatgHzDZ9EJyQ==",
+  "dgSpecHash": "T6JOlLMqsMDOJmp9JVWrrvay7IuRynj1kfjQxLppkIDNT7k1RAlBhoZNWEqmjfU9tzZZEOaaMtc5WpZ2c0FzSQ==",
   "success": true,
   "projectFilePath": "/Users/ray/RiderProjects/Recipe/Recipe.Core/Recipe.Core.csproj",
   "expectedPackageFiles": [
     "/Users/ray/.nuget/packages/autofac/8.0.0/autofac.8.0.0.nupkg.sha512",
     "/Users/ray/.nuget/packages/autofac.extensions.dependencyinjection/9.0.0/autofac.extensions.dependencyinjection.9.0.0.nupkg.sha512",
     "/Users/ray/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
+    "/Users/ray/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",
     "/Users/ray/.nuget/packages/fluentvalidation/11.5.1/fluentvalidation.11.5.1.nupkg.sha512",
     "/Users/ray/.nuget/packages/fluentvalidation.aspnetcore/11.3.0/fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "/Users/ray/.nuget/packages/fluentvalidation.dependencyinjectionextensions/11.5.1/fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
@@ -16,6 +17,7 @@
     "/Users/ray/.nuget/packages/microsoft.entityframeworkcore/8.0.7/microsoft.entityframeworkcore.8.0.7.nupkg.sha512",
     "/Users/ray/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.7/microsoft.entityframeworkcore.abstractions.8.0.7.nupkg.sha512",
     "/Users/ray/.nuget/packages/microsoft.entityframeworkcore.analyzers/8.0.7/microsoft.entityframeworkcore.analyzers.8.0.7.nupkg.sha512",
+    "/Users/ray/.nuget/packages/microsoft.entityframeworkcore.proxies/8.0.7/microsoft.entityframeworkcore.proxies.8.0.7.nupkg.sha512",
     "/Users/ray/.nuget/packages/microsoft.entityframeworkcore.relational/8.0.7/microsoft.entityframeworkcore.relational.8.0.7.nupkg.sha512",
     "/Users/ray/.nuget/packages/microsoft.extensions.caching.abstractions/8.0.0/microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "/Users/ray/.nuget/packages/microsoft.extensions.caching.memory/8.0.0/microsoft.extensions.caching.memory.8.0.0.nupkg.sha512",
@@ -33,6 +35,7 @@
     "/Users/ray/.nuget/packages/microsoft.identitymodel.logging/7.1.2/microsoft.identitymodel.logging.7.1.2.nupkg.sha512",
     "/Users/ray/.nuget/packages/microsoft.identitymodel.tokens/7.1.2/microsoft.identitymodel.tokens.7.1.2.nupkg.sha512",
     "/Users/ray/.nuget/packages/system.diagnostics.diagnosticsource/7.0.2/system.diagnostics.diagnosticsource.7.0.2.nupkg.sha512",
+    "/Users/ray/.nuget/packages/system.diagnostics.eventlog/6.0.0/system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "/Users/ray/.nuget/packages/system.identitymodel.tokens.jwt/7.1.2/system.identitymodel.tokens.jwt.7.1.2.nupkg.sha512"
   ],
   "logs": []

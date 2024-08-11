@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Recipe.Core.DTOs.Base;
 using Recipe.Core.Entities;
@@ -40,12 +41,12 @@ namespace Recipe.API.Controllers
             {
                 return null;
             }
-
             return await _userManager.FindByNameAsync(username);
         }
 
         [NonAction]
-        protected async Task<IActionResult> ExecuteServiceAsync<T>(Func<UserApp, Task<CustomResponseDto<T>>> serviceFunc)
+        protected async Task<IActionResult> ExecuteServiceAsync<T>(
+            Func<UserApp, Task<CustomResponseDto<T>>> serviceFunc)
         {
             var activeUser = await GetActiveUserAsync();
             if (activeUser == null)

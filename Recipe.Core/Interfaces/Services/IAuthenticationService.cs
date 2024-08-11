@@ -7,7 +7,9 @@ namespace Recipe.Core.Interfaces.Services
     public interface IAuthenticationService
     {
         Task<CustomResponseDto<UserAppDto>> RegisterAsync(UserCreateDto userCreateDto);
+        Task<CustomResponseDto<UserAppDto>> RegisterAdminAsync(UserCreateDto userCreateDto);
         Task<CustomResponseDto<AuthResponseDto>> LoginAsync(LoginDto loginDto);
+        Task<CustomResponseDto<NoContentDto>> ActiveOrPassiveTrigger(ActiveOrPassviceTriggerDto activeOrPassiveTriggerDto);
 
     }
 }

@@ -10,7 +10,7 @@ using Recipe.Core.Interfaces.UnitOfWorks;
 
 namespace Recipe.API.Services;
 
-public class Service<T> : IService<T> where T : class
+public class Service<T> : IService<T> where T : BaseEntity
 {
     private readonly IGenericRepository<T> _repository;
     private readonly IUnitOfWork _unitOfWork;
@@ -22,20 +22,61 @@ public class Service<T> : IService<T> where T : class
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<T> GetByIdAsync(int id)
+    public async Task<T> CheckUserAccess(int id, string userId)
     {
-        var hasProduct = await _repository.GetByIdAsync(id);
+        if (!typeof(IUserOwnedEntity).IsAssignableFrom(typeof(T)))
+            throw new InvalidOperationException("This entity does not support user ownership.");
 
-        if (hasProduct == null)
+        var entity = await Where(t => t.Id == id)
+            .FirstOrDefaultAsync(e => ((IUserOwnedEntity)e).UserId == userId);
+
+        if (entity == null)
         {
-            // throw new NotFoundExcepiton($"{typeof(T).Name}({id}) not found");
+            throw new NotFoundException();
         }
-        return hasProduct;
+        return entity;
     }
 
-    public async Task<IEnumerable<T>> GetAllAsync()
+    public async Task<bool> EnsureExistsOrThrow(Expression<Func<T, bool>> expression)
     {
-        return await _repository.GetAll().ToListAsync();
+        var isExist = await _repository.AnyAsync(expression);
+
+        if (isExist != true)
+        {
+            throw new NotFoundException();
+        }
+
+        return isExist;
+    }
+
+    public async Task<bool> EnsureNotExistsOrThrow(Expression<Func<T, bool>> expression)
+    {
+        var isExist = await _repository.AnyAsync(expression);
+
+        if (isExist)
+        {
+            throw new AlreadyDefinedException();
+        }
+
+        return isExist;
+    }
+
+
+    public async Task<T> GetByIdAsync(int id)
+    {
+        var entity = await _repository.GetByIdAsync(id);
+
+        if (entity == null)
+        {
+            throw new NotFoundException($"{typeof(T).Name} not found");
+        }
+
+        return entity;
+    }
+
+    public IQueryable<T> GetAll()
+    {
+        return _repository.GetAll();
     }
 
     public IQueryable<T> Where(Expression<Func<T, bool>> expression)
@@ -62,10 +103,12 @@ public class Service<T> : IService<T> where T : class
         return entities;
     }
 
-    public async Task UpdateAsync(T entity)
+    public async Task<T> UpdateAsync(T entity)
     {
         _repository.Update(entity);
         await _unitOfWork.CommitAsync();
+        return entity;
+
     }
 
     public async Task RemoveAsync(T entity)

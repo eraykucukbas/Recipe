@@ -11,7 +11,8 @@ namespace Recipe.Infrastructure.Configurations
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
             builder.Property(x => x.Message).IsRequired().HasMaxLength(500);
-            builder.Property(x => x.Rate).IsRequired();
+            builder.Property(x => x.Rate);
+            builder.Property(x => x.ParentComment);
             builder.Property(x => x.CreatedDate).IsRequired();
             builder.Property(x => x.UpdatedDate);
 

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Recipe.Core.DTOs.Favorite;
-using Recipe.Core.DTOs.Recipe;
+using Recipe.Core.DTOs.Filter;
 using Recipe.Core.Entities;
 using Recipe.Core.Interfaces.Services;
 
@@ -23,10 +23,18 @@ namespace Recipe.API.Controllers
             _service = service;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
-        public async Task<IActionResult> GetAllAsync()
+        public async Task<IActionResult> GetAll([FromHeader] FilterReportDto filtersDto)
         {
-            return CreateActionResult(await _service.GetAll());
+            return CreateActionResult(await _service.GetAllAsync(filtersDto));
+        }
+
+        [HttpGet("my")]
+        public async Task<IActionResult> GetMy([FromHeader] FilterPaginationDto filterPaginationDto)
+        {
+            return await ExecuteServiceAsync(async activeUser =>
+                await _service.GetMyAsync(filterPaginationDto, activeUser));
         }
 
         [HttpPost]
@@ -35,26 +43,12 @@ namespace Recipe.API.Controllers
             return await ExecuteServiceAsync(async activeUser =>
                 await _service.Create(favoriteCreateDto, activeUser));
         }
-        //
-        // [HttpPut]
-        // public async Task<IActionResult> Update(TodoListUpdateDto todoListUpdateDto)
-        // {
-        //     return await ExecuteServiceAsync(async activeUser =>
-        //         await _service.UpdateTodoList(todoListUpdateDto, activeUser));
-        // }
-        //
-        // [HttpPut("isCompletedTrigger")]
-        // public async Task<IActionResult> IsCompletedTrigger([FromBody] IsCompletedTriggerDto dto)
-        // {
-        //     return await ExecuteServiceAsync(async activeUser =>
-        //         await _service.IsCompletedTrigger(dto.Id, activeUser));
-        // }
-        //
-        // [HttpDelete("{id}")]
-        // public async Task<IActionResult> Remove(int id)
-        // {
-        //     return await ExecuteServiceAsync(async activeUser =>
-        //         await _service.RemoveTodoList(id, activeUser));
-        // }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Remove(int id)
+        {
+            return await ExecuteServiceAsync(async activeUser =>
+                await _service.RemoveAsync(id, activeUser));
+        }
     }
 }
