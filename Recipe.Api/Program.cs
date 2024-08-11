@@ -2,6 +2,8 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Recipe.Api;
 using Recipe.API.Middlewares;
+using Microsoft.AspNetCore.Identity;
+using Recipe.Infrastructure.Seeds;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,13 @@ builder.Host.ConfigureContainer<ContainerBuilder>(Bootstrapper.ConfigureContaine
 Bootstrapper.InitializeServices(builder.Services, builder.Configuration);
 
 var app = builder.Build();
+
+// Seed Roles
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    await RoleSeed.SeedRolesAsync(roleManager);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

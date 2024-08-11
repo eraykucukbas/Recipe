@@ -66,7 +66,9 @@
 /Users/ray/RiderProjects/Recipe/Recipe.Api/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
 /Users/ray/RiderProjects/Recipe/Recipe.Api/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
 /Users/ray/RiderProjects/Recipe/Recipe.Api/bin/Debug/net8.0/Recipe.Core.dll
+/Users/ray/RiderProjects/Recipe/Recipe.Api/bin/Debug/net8.0/Recipe.Infrastructure.dll
 /Users/ray/RiderProjects/Recipe/Recipe.Api/bin/Debug/net8.0/Recipe.Core.pdb
+/Users/ray/RiderProjects/Recipe/Recipe.Api/bin/Debug/net8.0/Recipe.Infrastructure.pdb
 /Users/ray/RiderProjects/Recipe/Recipe.Api/obj/Debug/net8.0/Recipe.Api.csproj.AssemblyReference.cache
 /Users/ray/RiderProjects/Recipe/Recipe.Api/obj/Debug/net8.0/Recipe.Api.GeneratedMSBuildEditorConfig.editorconfig
 /Users/ray/RiderProjects/Recipe/Recipe.Api/obj/Debug/net8.0/Recipe.Api.AssemblyInfoInputs.cache
@@ -74,6 +76,7 @@
 /Users/ray/RiderProjects/Recipe/Recipe.Api/obj/Debug/net8.0/Recipe.Api.csproj.CoreCompileInputs.cache
 /Users/ray/RiderProjects/Recipe/Recipe.Api/obj/Debug/net8.0/Recipe.Api.MvcApplicationPartsAssemblyInfo.cs
 /Users/ray/RiderProjects/Recipe/Recipe.Api/obj/Debug/net8.0/Recipe.Api.MvcApplicationPartsAssemblyInfo.cache
+/Users/ray/RiderProjects/Recipe/Recipe.Api/obj/Debug/net8.0/Recipe.Api.sourcelink.json
 /Users/ray/RiderProjects/Recipe/Recipe.Api/obj/Debug/net8.0/staticwebassets.build.json
 /Users/ray/RiderProjects/Recipe/Recipe.Api/obj/Debug/net8.0/staticwebassets.development.json
 /Users/ray/RiderProjects/Recipe/Recipe.Api/obj/Debug/net8.0/staticwebassets/msbuild.Recipe.Api.Microsoft.AspNetCore.StaticWebAssets.props
@@ -88,5 +91,6 @@
 /Users/ray/RiderProjects/Recipe/Recipe.Api/obj/Debug/net8.0/Recipe.Api.pdb
 /Users/ray/RiderProjects/Recipe/Recipe.Api/obj/Debug/net8.0/Recipe.Api.genruntimeconfig.cache
 /Users/ray/RiderProjects/Recipe/Recipe.Api/obj/Debug/net8.0/ref/Recipe.Api.dll
-/Users/ray/RiderProjects/Recipe/Recipe.Api/bin/Debug/net8.0/Recipe.Infrastructure.dll
-/Users/ray/RiderProjects/Recipe/Recipe.Api/bin/Debug/net8.0/Recipe.Infrastructure.pdb
+/Users/ray/RiderProjects/Recipe/Recipe.Api/bin/Debug/net8.0/Castle.Core.dll
+/Users/ray/RiderProjects/Recipe/Recipe.Api/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Proxies.dll
+/Users/ray/RiderProjects/Recipe/Recipe.Api/bin/Debug/net8.0/Recipe.Api.staticwebassets.runtime.json

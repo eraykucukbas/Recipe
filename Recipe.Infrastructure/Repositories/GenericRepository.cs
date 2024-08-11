@@ -30,6 +30,7 @@ namespace Recipe.Infrastructure.Repositories
         {
             return await _dbSet.AnyAsync(expression);
         }
+
         public IQueryable<T> GetAll()
         {
             return _dbSet.AsNoTracking().AsQueryable();
@@ -42,7 +43,6 @@ namespace Recipe.Infrastructure.Repositories
 
         public void Remove(T entity)
         {
-
             _dbSet.Remove(entity);
         }
 

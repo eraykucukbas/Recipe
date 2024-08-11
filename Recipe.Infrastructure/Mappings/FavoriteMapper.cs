@@ -12,38 +12,36 @@ namespace Recipe.Infrastructure.Mappings
             return new FavoriteDto
             {
                 Id = entity.Id,
+                RecipeId = entity.RecipeId,
                 UserId = entity.UserId,
-                Recipe = entity.Recipe,
                 CreatedDate = entity.CreatedDate,
                 UpdatedDate = entity.UpdatedDate
             };
         }
 
-        // public static RecipeDetailDto? ToDetailDto(RecipeEntity? entity)
-        // {
-        //     if (entity is null) return null;
-        //
-        //     return new RecipeDetailDto
-        //     {
-        //         Id = entity.Id,
-        //         Title = entity.Title,
-        //         Description = entity.Description,
-        //         ImageUrl = entity.ImageUrl,
-        //         User = entity.User,
-        //         Category = entity.Category,
-        //         Ingredients = entity.Ingredients,
-        //         Instructions = entity.Instructions,
-        //         CreatedDate = entity.CreatedDate,
-        //         UpdatedDate = entity.UpdatedDate
-        //     };
-        // }
-        //
+        public static FavoriteMyDto? ToMyDto(Favorite? entity)
+        {
+            if (entity is null) return null;
+
+            return new FavoriteMyDto
+            {
+                Id = entity.Id,
+                Recipe = RecipeMapper.ToSummaryDto(entity.Recipe),
+                CreatedDate = entity.CreatedDate,
+                UpdatedDate = entity.UpdatedDate
+            };
+        }
+
         public static List<FavoriteDto?>? ToListDto(IEnumerable<Favorite>? entities)
         {
             return entities?.Select(ToDto).ToList();
         }
 
-        //
+        public static List<FavoriteMyDto?>? ToMyListDto(IEnumerable<Favorite>? entities)
+        {
+            return entities?.Select(ToMyDto).ToList();
+        }
+
         public static Favorite ToEntity(FavoriteCreateDto favoriteCreateDto)
         {
             return new Favorite

@@ -6,6 +6,7 @@
 /Users/ray/RiderProjects/Recipe/Recipe.Core/obj/Debug/net8.0/Recipe.Core.AssemblyInfoInputs.cache
 /Users/ray/RiderProjects/Recipe/Recipe.Core/obj/Debug/net8.0/Recipe.Core.AssemblyInfo.cs
 /Users/ray/RiderProjects/Recipe/Recipe.Core/obj/Debug/net8.0/Recipe.Core.csproj.CoreCompileInputs.cache
+/Users/ray/RiderProjects/Recipe/Recipe.Core/obj/Debug/net8.0/Recipe.Core.sourcelink.json
 /Users/ray/RiderProjects/Recipe/Recipe.Core/obj/Debug/net8.0/Recipe.Core.dll
 /Users/ray/RiderProjects/Recipe/Recipe.Core/obj/Debug/net8.0/refint/Recipe.Core.dll
 /Users/ray/RiderProjects/Recipe/Recipe.Core/obj/Debug/net8.0/Recipe.Core.pdb

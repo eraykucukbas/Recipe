@@ -1,8 +1,13 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Recipe.Core.DTOs.Base;
+using Recipe.Core.DTOs.Filter;
+using Recipe.Core.DTOs.Ingredient;
+using Recipe.Core.DTOs.Instruction;
 using Recipe.Core.DTOs.Recipe;
+using Recipe.Core.DTOs.Tag;
 using Recipe.Core.Entities;
 using Recipe.Core.Interfaces.Services;
 
@@ -24,9 +29,9 @@ namespace Recipe.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllAsync()
+        public async Task<IActionResult> GetAllAsync([FromHeader] FilterRecipeDto filterRecipeDto)
         {
-            return CreateActionResult(await _service.GetAll());
+            return CreateActionResult(await _service.GetAllAsync(filterRecipeDto));
         }
 
         [HttpGet("{id}")]
@@ -34,34 +39,30 @@ namespace Recipe.API.Controllers
         {
             return CreateActionResult(await _service.GetById(id));
         }
-        
+
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Save(RecipeCreateDto recipeCreateDto)
+        public async Task<IActionResult> Save([FromForm] RecipeCreateFormDataDto recipeCreateFormDataDto)
         {
             return await ExecuteServiceAsync(async activeUser =>
-                await _service.Create(recipeCreateDto, activeUser));
+                await _service.Create(recipeCreateFormDataDto, activeUser));
         }
-        //
-        // [HttpPut]
-        // public async Task<IActionResult> Update(TodoListUpdateDto todoListUpdateDto)
-        // {
-        //     return await ExecuteServiceAsync(async activeUser =>
-        //         await _service.UpdateTodoList(todoListUpdateDto, activeUser));
-        // }
-        //
-        // [HttpPut("isCompletedTrigger")]
-        // public async Task<IActionResult> IsCompletedTrigger([FromBody] IsCompletedTriggerDto dto)
-        // {
-        //     return await ExecuteServiceAsync(async activeUser =>
-        //         await _service.IsCompletedTrigger(dto.Id, activeUser));
-        // }
-        //
-        // [HttpDelete("{id}")]
-        // public async Task<IActionResult> Remove(int id)
-        // {
-        //     return await ExecuteServiceAsync(async activeUser =>
-        //         await _service.RemoveTodoList(id, activeUser));
-        // }
+        
+        
+        [Authorize]
+        [HttpPut]
+        public async Task<IActionResult> Update([FromForm] RecipeUpdateFormDataDto recipeUpdateFormDataDto)
+        {
+            return await ExecuteServiceAsync(async activeUser =>
+                await _service.Update(recipeUpdateFormDataDto, activeUser));
+        }
+
+        [Authorize]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Remove(int id)
+        {
+            return await ExecuteServiceAsync(async activeUser =>
+                await _service.Remove(id, activeUser));
+        }
     }
 }

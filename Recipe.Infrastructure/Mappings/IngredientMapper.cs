@@ -33,8 +33,13 @@ namespace Recipe.Infrastructure.Mappings
 
         public static List<Ingredient?> ToEntityList(IEnumerable<IngredientCreateDto>? dto)
         {
-            // return entities?.Select(ToDto).ToList();
             return dto.Select(ToEntity).ToList();
+        }
+        
+        public static List<IngredientDto?> ToSummaryListdto(ICollection<Ingredient>? entities)
+        {
+            if (entities is null) return null;
+            return entities.Select(ToDto).ToList();
         }
     }
 }

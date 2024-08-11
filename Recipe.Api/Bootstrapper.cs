@@ -1,17 +1,21 @@
 using System.Reflection;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using Autofac;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Recipe.API.Filters;
+using Recipe.Api.Helpers.Converters;
 using Recipe.API.Modules;
 using Recipe.API.Services;
 using Recipe.Core.Entities;
 using Recipe.Core.Exceptions;
+using Recipe.Core.Validators;
 using Recipe.Infrastructure.Configurations;
 using Recipe.Infrastructure.Models;
 using Swashbuckle.AspNetCore.Filters;
@@ -27,9 +31,14 @@ public static class Bootstrapper
             .AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-            });
+                // options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+                options.JsonSerializerOptions.Converters.Add(new IntJsonConverter());
+            })
+            .ConfigureApiBehaviorOptions(options => { options.SuppressModelStateInvalidFilter = true; });
 
-        services.Configure<ApiBehaviorOptions>(options => { options.SuppressModelStateInvalidFilter = true; });
+        services.AddValidatorsFromAssemblyContaining<FavoriteCreateDtoValidator>();
+        services.AddFluentValidationAutoValidation();
+        services.AddFluentValidationClientsideAdapters();
 
         services.AddEndpointsApiExplorer();
         services.AddMemoryCache();
@@ -84,9 +93,13 @@ public static class Bootstrapper
                     context.HandleResponse();
                     context.Response.StatusCode = StatusCodes.Status401Unauthorized;
                     context.Response.ContentType = "application/json";
-                    // var result = JsonSerializer.Serialize(new { message = "Forbidden" });
-                    // return context.Response.WriteAsync(result);
                     throw new AuthorizationException();
+                },
+                OnForbidden = context =>
+                {
+                    context.Response.StatusCode = StatusCodes.Status403Forbidden;
+                    context.Response.ContentType = "application/json";
+                    throw new ForbiddenException();
                 }
             };
         });
@@ -100,6 +113,7 @@ public static class Bootstrapper
                 });
         });
     }
+
 
     public static void ConfigureContainer(ContainerBuilder containerBuilder)
     {

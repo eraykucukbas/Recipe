@@ -22,7 +22,7 @@ namespace Recipe.Infrastructure.Configurations
 
             builder.HasOne(x => x.Category)
                 .WithMany(c => c.Recipes)
-                .HasForeignKey(x => x.CategoryId);
+                .HasForeignKey(x => x.CategoryId).OnDelete(DeleteBehavior.SetNull);
 
             builder.ToTable("Recipes");
         }

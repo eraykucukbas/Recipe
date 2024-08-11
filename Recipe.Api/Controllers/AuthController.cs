@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Recipe.Core.DTOs.Auth;
@@ -26,10 +27,24 @@ namespace Recipe.API.Controllers
             return CreateActionResult(await _authenticationService.RegisterAsync(userCreateDto));
         }
 
+        [HttpPost("register/admin")]
+        public async Task<IActionResult> RegisterAdmin(UserCreateDto userCreateDto)
+        {
+            return CreateActionResult(await _authenticationService.RegisterAdminAsync(userCreateDto));
+        }
+
+
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto loginDto)
         {
             return CreateActionResult(await _authenticationService.LoginAsync(loginDto));
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPut("activeOrPassiveTrigger")]
+        public async Task<IActionResult> ActiveOrPassiveTrigger(ActiveOrPassviceTriggerDto activeOrPassiveTriggerDto)
+        {
+            return CreateActionResult(await _authenticationService.ActiveOrPassiveTrigger(activeOrPassiveTriggerDto));
         }
     }
 }

@@ -13,8 +13,11 @@ namespace Recipe.Infrastructure.Configurations
             builder.Property(x => x.CreatedDate).IsRequired();
             builder.Property(x => x.UpdatedDate);
 
-            builder.HasOne(x => x.Recipe).WithMany(u => u.Favorites).HasForeignKey(x => x.RecipeId);
-            builder.HasOne(x => x.User).WithMany(u => u.Favorites).HasForeignKey(x => x.UserId);
+            builder.HasOne(x => x.Recipe).WithMany(u => u.Favorites).HasForeignKey(x => x.RecipeId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(x => x.User).WithMany(u => u.Favorites).HasForeignKey(x => x.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.ToTable("Favorites");
         }

@@ -7,7 +7,7 @@ namespace Recipe.Core.Entities
         public string UserId { get; set; } = null!;
         public string Title { get; set; } = null!;
         public string? Description { get; set; }
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
         public string? ImageUrl { get; set; }
 
         public UserApp User { get; set; }
@@ -18,7 +18,7 @@ namespace Recipe.Core.Entities
         public ICollection<Comment> Comments { get; set; } = new List<Comment>();
         public ICollection<Tag> Tags { get; set; } = new List<Tag>();
 
-        [DeleteBehavior(DeleteBehavior.NoAction)]
-        public ICollection<Favorite> Favorites { get; set; } = new List<Favorite>();
+        // [DeleteBehavior(DeleteBehavior.NoAction)]
+        public virtual ICollection<Favorite> Favorites { get; set; } = new List<Favorite>();
     }
 }

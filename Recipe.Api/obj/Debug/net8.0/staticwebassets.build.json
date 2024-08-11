@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "sOrzb8G8FOO6v2apkGD+TC/f927YX5sAV2cPwixqBkw=",
+  "Hash": "GS8Q0ye7BZFbww+bA08ET+9Jc2hbcJSWJOtNxAONOAs=",
   "Source": "Recipe.Api",
   "BasePath": "_content/Recipe.Api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Recipe.Api/wwwroot",
+      "Source": "Recipe.Api",
+      "ContentRoot": "/Users/ray/RiderProjects/Recipe/Recipe.Api/wwwroot/",
+      "BasePath": "_content/Recipe.Api",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

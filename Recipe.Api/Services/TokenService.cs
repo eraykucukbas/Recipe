@@ -35,22 +35,29 @@ namespace Recipe.API.Services
 
             return Convert.ToBase64String(numberByte);
         }
-        
 
-        public Task<TokenDto> CreateToken(UserApp userApp)
+
+        public async Task<TokenDto> CreateToken(UserApp userApp)
         {
             var accessTokenExpiration = Now.AddMinutes(_tokenOption.AccessTokenExpiration);
             var refreshTokenExpiration = Now.AddMinutes(_tokenOption.RefreshTokenExpiration);
             var securityKey = SignService.GetSymmetricSecurityKey(_tokenOption.SecurityKey);
 
             var signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
+
+
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, userApp.Id.ToString()),
                 new Claim(ClaimTypes.Name, userApp.UserName)
-
             };
-            
+
+            var roles = await _userManager.GetRolesAsync(userApp);
+            if (roles.Contains("Admin"))
+            {
+                claims.Add(new Claim(ClaimTypes.Role, "Admin"));
+            }
+
             var jwtSecurityToken = new JwtSecurityToken(
                 issuer: _tokenOption.Issuer,
                 audience: _tokenOption.Audience[0],
@@ -70,7 +77,7 @@ namespace Recipe.API.Services
                 AccessTokenExpiration = accessTokenExpiration,
                 RefreshTokenExpiration = refreshTokenExpiration
             };
-            return Task.FromResult(tokenDto);
+            return await Task.FromResult(tokenDto);
         }
     }
 }

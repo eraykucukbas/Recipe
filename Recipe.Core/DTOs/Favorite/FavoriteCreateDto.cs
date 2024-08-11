@@ -6,5 +6,5 @@ public class FavoriteCreateDto
 {
     public int RecipeId { get; set; }
 
-    [JsonIgnore] public string UserId { get; set; }
+    [JsonIgnore] public string? UserId { get; set; }
 }

@@ -8,8 +8,7 @@ public class InstructionCreateDto
 {
     public string Name { get; set; } = null!;
     public string Description { get; set; } = null!;
-    public int Step { get; set; }
+    [JsonIgnore] public int Step { get; set; }
     
-    [JsonIgnore]
-    public int RecipeId { get; set; }
+    [JsonIgnore] public int RecipeId { get; set; }
 }
